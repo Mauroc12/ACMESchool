@@ -6,10 +6,15 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
+using System.Reflection;
+using ACMESchool.Application;
+using ACMESchool.Persistence;
+using ACMESchool.ExternalServices;
 
 namespace ACMESchool.API
 {
@@ -25,7 +30,14 @@ namespace ACMESchool.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers(); 
+            services.AddSwaggerGen();
+            services.AddPersistenceServices();
+            services.AddApplicationServices();
+            services.AddExternalServicesServices();
+            services.AddDbContext<ACMESchoolContext>();
+
+             
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,16 +48,28 @@ namespace ACMESchool.API
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
-
+            app.UseHttpsRedirection(); 
             app.UseRouting();
-
+            app.UseSwagger();
+            app.UseSwaggerUI(options =>
+            {
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+                options.RoutePrefix = string.Empty;
+            });
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+
+            using (var scope = app.ApplicationServices.CreateScope())
+            {
+                ACMESchoolContext context = scope.ServiceProvider.GetRequiredService<ACMESchoolContext>();
+                context.Database.EnsureCreated();
+            } ;
+          
+
         }
     }
 }

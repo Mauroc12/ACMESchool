@@ -1,7 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ACMESchool.Domain\ACMESchool.Domain.csproj" />
+    <ProjectReference Include="..\ACMESchool.ExternalServices\ACMESchool.ExternalServices.csproj" />
+    <ProjectReference Include="..\ACMESchool.Persistence\ACMESchool.Persistence.csproj" />
+  </ItemGroup>
 
 </Project>

@@ -1,43 +1,33 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ACMESchool.API.Model;
+using ACMESchool.Application.Student.Command.CreateStudent;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Threading;
+using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace ACMESchool.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/student")]
     [ApiController]
     public class StudentController : ControllerBase
     {
-        // GET: api/<StudentController>
-        [HttpGet]
-        public IEnumerable<string> Get()
+
+        private readonly IMediator _mediator;
+
+        public StudentController(IMediator mediator)
         {
-            return new string[] { "value1", "value2" };
+            _mediator = mediator;
         }
 
-        // GET api/<StudentController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
+        [HttpPost("create")]
+        public async Task<OkResult> Create([FromBody] CreateStudentCommand command)
+        { 
+            await _mediator.Send(command);
+            return Ok();
         }
 
-        // POST api/<StudentController>
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/<StudentController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<StudentController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }
