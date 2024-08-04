@@ -11,7 +11,7 @@ using System;
 using System.Threading.Tasks;
 
 namespace ACMESchool.API.Controllers
-{ 
+{
     [Route("api/course")]
     [ApiController]
     public class CourseController : ControllerBase
@@ -47,7 +47,7 @@ namespace ACMESchool.API.Controllers
                 EndDate = EndDate
             };
 
-           var response= await _mediator.Send(query);
+            var response = await _mediator.Send(query);
             return Ok(response);
         }
     }

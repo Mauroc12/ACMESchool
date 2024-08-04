@@ -16,18 +16,23 @@ namespace ACMESchool.Domain.Entities
         public List<Course> Courses { get; private set; }
         public Student(string firstName, string lastName, int age)
         {
-
             this.FirstName = firstName;
             this.LastName = lastName;
             this.Age = age;
+
             Courses = new List<Course>();
+
+            if (!IsAdult())
+            {
+                throw new ArgumentException("El estudiante debe ser mayor de edad.");
+            }
         }
 
         public Student()
         {
         }
 
-        public bool IsAdult()
+        private bool IsAdult()
         {
             return Age >= ADULTLIMITAGE;
         }

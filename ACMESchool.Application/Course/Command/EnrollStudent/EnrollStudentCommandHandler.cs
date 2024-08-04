@@ -36,7 +36,7 @@ namespace ACMESchool.Application.Course.Command.EnrollStudent
                 throw new Exception("Curso no encontrado");
             }
 
-            if (!course.PaymentRequired())
+            if (course.PaymentRequired())
             {
                 bool pagoExitoso = await _paymentGateway.Process();
                 if (!pagoExitoso)

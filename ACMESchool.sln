@@ -11,15 +11,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{FF0F0C84-7
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infraestructure", "Infraestructure", "{C21545B8-6AEB-4917-BD47-1A24B3E3C0DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACMESchool.API", "ACMESchool.API\ACMESchool.API.csproj", "{54B9F396-42BF-449F-866D-AF123E25F007}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ACMESchool.API", "ACMESchool.API\ACMESchool.API.csproj", "{54B9F396-42BF-449F-866D-AF123E25F007}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACMESchool.Application", "ACMESchool.Application\ACMESchool.Application.csproj", "{FC4D9B4F-905A-4787-9AAE-FBD3EF14515F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ACMESchool.Application", "ACMESchool.Application\ACMESchool.Application.csproj", "{FC4D9B4F-905A-4787-9AAE-FBD3EF14515F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACMESchool.Domain", "ACMESchool.Domain\ACMESchool.Domain.csproj", "{4F62768B-9FD2-4EE5-A85E-65373F20869F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ACMESchool.Domain", "ACMESchool.Domain\ACMESchool.Domain.csproj", "{4F62768B-9FD2-4EE5-A85E-65373F20869F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACMESchool.Persistence", "ACMESchool.Persistence\ACMESchool.Persistence.csproj", "{0822D21F-26EA-4023-B4B2-03BFAEC030FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ACMESchool.Persistence", "ACMESchool.Persistence\ACMESchool.Persistence.csproj", "{0822D21F-26EA-4023-B4B2-03BFAEC030FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACMESchool.ExternalServices", "ACMESchool.ExternalServices\ACMESchool.ExternalServices.csproj", "{7D118D8E-4EE6-49B8-BF98-84F75707CB4F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ACMESchool.ExternalServices", "ACMESchool.ExternalServices\ACMESchool.ExternalServices.csproj", "{7D118D8E-4EE6-49B8-BF98-84F75707CB4F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{BE30A8D0-94C7-43CE-BC66-901E81ED1706}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACMESchool.Domain.Test", "ACMESchool.Domain.Test\ACMESchool.Domain.Test.csproj", "{E3F95959-FCBC-403D-8987-BCE3A29C0377}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACMESchool.Application.Test", "ACMESchool.Application.Test\ACMESchool.Application.Test.csproj", "{8CCC5904-7D4E-4971-995C-E984D7168B9E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +53,14 @@ Global
 		{7D118D8E-4EE6-49B8-BF98-84F75707CB4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D118D8E-4EE6-49B8-BF98-84F75707CB4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D118D8E-4EE6-49B8-BF98-84F75707CB4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3F95959-FCBC-403D-8987-BCE3A29C0377}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3F95959-FCBC-403D-8987-BCE3A29C0377}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3F95959-FCBC-403D-8987-BCE3A29C0377}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3F95959-FCBC-403D-8987-BCE3A29C0377}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CCC5904-7D4E-4971-995C-E984D7168B9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CCC5904-7D4E-4971-995C-E984D7168B9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CCC5904-7D4E-4971-995C-E984D7168B9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CCC5904-7D4E-4971-995C-E984D7168B9E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +74,8 @@ Global
 		{4F62768B-9FD2-4EE5-A85E-65373F20869F} = {FF0F0C84-7D20-4569-9ADB-0598D0834D97}
 		{0822D21F-26EA-4023-B4B2-03BFAEC030FF} = {C21545B8-6AEB-4917-BD47-1A24B3E3C0DB}
 		{7D118D8E-4EE6-49B8-BF98-84F75707CB4F} = {C21545B8-6AEB-4917-BD47-1A24B3E3C0DB}
+		{E3F95959-FCBC-403D-8987-BCE3A29C0377} = {BE30A8D0-94C7-43CE-BC66-901E81ED1706}
+		{8CCC5904-7D4E-4971-995C-E984D7168B9E} = {BE30A8D0-94C7-43CE-BC66-901E81ED1706}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D5280129-DDFC-4B42-9CA8-F2BFF9566DA8}

@@ -36,7 +36,7 @@ namespace ACMESchool.Persistence.Implementation
 
         public async Task< List<Course>> GetCoursesInRange(DateTime startDate, DateTime endDate)
         {
-            return await _context.Courses.Include(c => c.Students).Where(c => c.StartDate <= startDate && c.EndDate >= endDate).ToListAsync();
+            return await _context.Courses.Include(c => c.Students).Where(c => c.StartDate <= startDate && c.EndDate<= endDate).ToListAsync();
         }
     }
 }

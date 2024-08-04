@@ -15,10 +15,10 @@ namespace ACMESchool.Persistence
         public DbSet<Student> Students { get; set; }
         public DbSet<Course> Courses { get; set; }
 
+        public ACMESchoolContext(DbContextOptions<ACMESchoolContext> options) : base(options) { }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            var connectionString = "Server=localhost;Database=master;Trusted_Connection=True;TrustServerCertificate=True;";
-            optionsBuilder.UseSqlServer(connectionString);
+        { 
             base.OnConfiguring(optionsBuilder);
         }
 

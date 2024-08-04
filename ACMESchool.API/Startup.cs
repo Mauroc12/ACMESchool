@@ -15,6 +15,7 @@ using System.Reflection;
 using ACMESchool.Application;
 using ACMESchool.Persistence;
 using ACMESchool.ExternalServices;
+using Microsoft.EntityFrameworkCore;
 
 namespace ACMESchool.API
 {
@@ -30,14 +31,16 @@ namespace ACMESchool.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers(); 
+            services.AddControllers();
             services.AddSwaggerGen();
             services.AddPersistenceServices();
             services.AddApplicationServices();
             services.AddExternalServicesServices();
-            services.AddDbContext<ACMESchoolContext>();
+            services.AddDbContext<ACMESchoolContext>(options =>
+                        options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-             
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,7 +51,7 @@ namespace ACMESchool.API
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection(); 
+            app.UseHttpsRedirection();
             app.UseRouting();
             app.UseSwagger();
             app.UseSwaggerUI(options =>
@@ -62,14 +65,7 @@ namespace ACMESchool.API
             {
                 endpoints.MapControllers();
             });
-
-            using (var scope = app.ApplicationServices.CreateScope())
-            {
-                ACMESchoolContext context = scope.ServiceProvider.GetRequiredService<ACMESchoolContext>();
-                context.Database.EnsureCreated();
-            } ;
-          
-
+             
         }
     }
 }

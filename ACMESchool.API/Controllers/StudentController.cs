@@ -24,7 +24,7 @@ namespace ACMESchool.API.Controllers
 
         [HttpPost("create")]
         public async Task<OkResult> Create([FromBody] CreateStudentCommand command)
-        { 
+        {
             await _mediator.Send(command);
             return Ok();
         }
