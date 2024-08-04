@@ -22,9 +22,9 @@ namespace ACMESchool.Application.Course.Command.CreateCourse
 
         public async Task<CreateCourseResponse> Handle(CreateCourseCommand request, CancellationToken cancellationToken)
         {
-            Domain.Entities.Course course = new Domain.Entities.Course(request.Name,request.Fee,request.StartDate,request.EndDate);
+            Domain.Entities.Course course = new Domain.Entities.Course(request.Name, request.Fee, request.StartDate, request.EndDate);
             await _courseRepository.Add(course);
-            return new CreateCourseResponse();
+            return new CreateCourseResponse().Success<CreateCourseResponse>();
         }
     }
 }

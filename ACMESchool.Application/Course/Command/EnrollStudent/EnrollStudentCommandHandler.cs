@@ -1,4 +1,5 @@
-﻿using ACMESchool.ExternalServices.Contract;
+﻿using ACMESchool.Application.Course.Command.CreateCourse;
+using ACMESchool.ExternalServices.Contract;
 using ACMESchool.Persistence.Contract;
 using ACMESchool.Persistence.Implementation;
 using MediatR;
@@ -48,7 +49,8 @@ namespace ACMESchool.Application.Course.Command.EnrollStudent
             course.EnrollStudent(student);
 
             await _courseRepository.Update(course);
-            return new EnrollStudentResponse();
+
+            return new EnrollStudentResponse().Success<EnrollStudentResponse>();
         }
     }
 }

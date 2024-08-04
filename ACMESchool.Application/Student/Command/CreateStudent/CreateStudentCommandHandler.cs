@@ -1,4 +1,5 @@
-﻿using ACMESchool.Persistence.Contract;
+﻿using ACMESchool.Application.Course.Command.CreateCourse;
+using ACMESchool.Persistence.Contract;
  using MediatR;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ namespace ACMESchool.Application.Student.Command.CreateStudent
         {
             Domain.Entities.Student student = new Domain.Entities.Student(request.FirstName, request.SurName, request.Age);
             await _studentRepository.Add(student);
-            return new CreateStudentResponse();
+            return new CreateStudentResponse().Success<CreateStudentResponse>();
         }
     }
 }
