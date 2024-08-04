@@ -4,8 +4,11 @@ El proyecto consiste en una solucion usando Clean Arhitecture con patron CQRS, s
 API que es una API RESTFull para el ingreso de informacion a la aplicacion 
 Aplication es la capa que se encarga de realizar la logica de los casos de uso 
 Domain contiene todas las entidades de dominio y su logica 
-Infraestrucutra contempla la comunicacion con servicios de terceros (External Services) y la persistencia de datos (Persistencies), en este caso use SQL Server con entity Core  
- 
+Infraestrucutra contempla la comunicacion con servicios de terceros (External Services) y la persistencia de datos (Persistencies), en este caso use SQL Server con entity Core 
+
+Tambien se agregaron proyectos de test correspondientes a cada capa
+
+
 
 Cosas que me hubiera gustado hacer pero no las hice por cuestion de tiempo:
 
